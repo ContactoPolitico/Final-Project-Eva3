@@ -17,7 +17,7 @@ currency = response.json()[0]["currencies"][0]["name"]
 language = response.json()[0]["languages"][0]["name"]
 
 
-linkweather = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=weather_code&hourly=temperature_2m&current=temperature_2m&timezone=auto&start_date=2026-03-11&end_date=2026-03-13"
+linkweather = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=weather_code&hourly=temperature_2m&current=temperature_2m&timezone=auto&start_date=2026-03-12&end_date=2026-03-13"
 
 country = [name, latitude, longitude, capital, region, subregion, population, currency, language]
 
@@ -31,9 +31,6 @@ weathercode = weatherinfo["hourly"]["temperature_2m"]
 
 for temperature in weathercode:
   print(temperature)
-
-
-
 
 responsecountry = requests.get(linkcountry)
 
