@@ -46,25 +46,29 @@ elif notes == "no":
 else:
 	print("That is not a valid answer")
 
+countrieslist = tripcountries.split(",")
+
 priceAM = 30 #30$ a night
 priceEU = 40 #40$ a night
 priceAS = 25 #25$ a night
 priceAF = 30 #30$ a night
 priceOC = 35 #35$ a night
 
-for country in tripcountries:
-	if country["region"] == "Americas":
-		print(f"That will be {tripdates * priceAM}$")
-	elif tripcountries == country["region"]["Europe"]:
-		print(f"That will be {tripdates * priceEU}$")
-	elif tripcountries == country["region"]["Asia"]:
-		print(f"That will be {tripdates * priceAS}$")
-	elif tripcountries == country["region"]["Africa"]:
-		print(f"That will be {tripdates * priceAF}$")
-	elif tripcountries == country["region"]["Oceania"]:
-		print(f"That will be {tripdates * priceOC}$")
-	else:
-		print("That is not a valid country")
+for country in countrieslist:
+	country = country.strip()
+
+if tripcountries == country["region"]["Americas"]:
+	print(f"That will be {tripdates * priceAM}$")
+elif tripcountries == country["region"]["Europe"]:
+	print(f"That will be {tripdates * priceEU}$")
+elif tripcountries == country["region"]["Asia"]:
+	print(f"That will be {tripdates * priceAS}$")
+elif tripcountries == country["region"]["Africa"]:
+	print(f"That will be {tripdates * priceAF}$")
+elif tripcountries == country["region"]["Oceania"]:
+	print(f"That will be {tripdates * priceOC}$")
+else:
+	print("That is not a valid country")
 
 print(trip, tripcountries, tripdates)
 
