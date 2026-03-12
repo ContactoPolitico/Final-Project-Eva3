@@ -31,3 +31,38 @@ weathercode = weatherinfo["hourly"]["temperature_2m"]
 
 for temperature in weathercode:
   print(temperature)
+
+
+
+
+responsecountry = requests.get(linkcountry)
+
+trip = input("Let's create a travel plan for your journey, please state your name: ")
+tripcountries = input("Please state the countries you want to visit: ")
+tripdates = int(input("Please state the total amount of days you will stay in this/those country/countries you want to visit: "))
+
+priceAM = 30 #30$ a night
+priceEU = 40 #40$ a night
+priceAS = 25 #25$ a night
+priceAF = 30 #30$ a night
+priceOC = 35 #35$ a night
+
+for country in tripcountries:
+	if country["region"] == "Americas":
+		print(f"That will be {tripdates * priceAM}$")
+	elif tripcountries == country["region"]["Europe"]:
+		print(f"That will be {tripdates * priceEU}$")
+	elif tripcountries == country["region"]["Asia"]:
+		print(f"That will be {tripdates * priceAS}$")
+	elif tripcountries == country["region"]["Africa"]:
+		print(f"That will be {tripdates * priceAF}$")
+	elif tripcountries == country["region"]["Oceania"]:
+		print(f"That will be {tripdates * priceOC}$")
+	else:
+		print("That is not a valid country")
+
+print(trip, tripcountries, tripdates)
+
+response = (responsecountry)
+
+print(response.json()) 
