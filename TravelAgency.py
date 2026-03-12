@@ -45,14 +45,7 @@ if  tripdates > 1:
 	print("Ok, let's continue")
 else:
 	print("That is not a valid answer")
-notes = input("Are there any notes or special requirements you want to let us know?(answer yes or no): ")
-
-if notes == "yes":
-	input("Write them here: ")
-elif notes == "no":
-	print("Ok, let's continue")
-else:
-	print("That is not a valid answer")
+notes = input("Write any notes or special requirements you want to let us know: ")
 
 countrieslist = tripcountries.split(",")
 for tripcountries in countrieslist:
@@ -70,21 +63,24 @@ ans = requests.get(linkcountries)
 
 region = ans.json()[0]["region"]
 
-if tripcountries == country["region"]["Americas"]:
-	print(f"That will be {tripdates * priceAM}$")
-elif tripcountries == country["region"]["Europe"]:
-	print(f"That will be {tripdates * priceEU}$")
-elif tripcountries == country["region"]["Asia"]:
-	print(f"That will be {tripdates * priceAS}$")
-elif tripcountries == country["region"]["Africa"]:
-	print(f"That will be {tripdates * priceAF}$")
-elif tripcountries == country["region"]["Oceania"]:
-	print(f"That will be {tripdates * priceOC}$")
-else:
-	print("That is not a valid country")
+countries = [region]
 
-print(trip, tripcountries, tripdates, notes)
+def trip(tripcountries, tripdates):
+	if tripcountries == countries[0]["region"]["Americas"]:
+		print(f"That will be {tripdates * priceAM}$")
+	elif tripcountries == countries[0]["region"]["Europe"]:
+		print(f"That will be {tripdates * priceEU}$")
+	elif tripcountries == countries[0]["region"]["Asia"]:
+		print(f"That will be {tripdates * priceAS}$")
+	elif tripcountries == countries[0]["region"]["Africa"]:
+		print(f"That will be {tripdates * priceAF}$")
+	elif tripcountries == countries[0]["region"]["Oceania"]:
+		print(f"That will be {tripdates * priceOC}$")
+	else:
+			print("That is not a valid country")
 
-response = (responsecountry)
-
-print(response.json()) 
+print(f"Client: {tripname}")
+print(f"Countries visiting: {tripcountries}") 
+print(f"Days visiting: {tripdates}")
+print(f"Notes/special requirements: {notes}")
+print(f"Total cost of trip: {trip}")
