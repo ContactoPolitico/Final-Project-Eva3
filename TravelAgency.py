@@ -37,6 +37,14 @@ responsecountry = requests.get(linkcountry)
 trip = input("Let's create a travel plan for your journey, please state your name: ")
 tripcountries = input("Please state the countries you want to visit: ")
 tripdates = int(input("Please state the total amount of days you will stay in this/those country/countries you want to visit: "))
+notes = input("Are there any notes or special requirements you want to let us know?(answer yes or no): ")
+
+if notes == "yes":
+	input("Write them here: ")
+elif notes == "no":
+	print("Ok, let's continue")
+else:
+	print("That is not a valid answer")
 
 priceAM = 30 #30$ a night
 priceEU = 40 #40$ a night
