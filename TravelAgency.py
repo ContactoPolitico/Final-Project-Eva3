@@ -35,10 +35,13 @@ weathercode = weatherinfo["hourly"]["temperature_2m"]
 
 for temperature in weathercode:
   print(temperature)
-
+	
 responsecountry = requests.get(linkcountry)
+response = (responsecountry)
 
-trip = input("Let's create a travel plan for your journey, please state your name: ")
+print(response.json())
+
+tripname = input("Let's create a travel plan for your journey, please state your name: ")
 tripcountries = input("Please state the countries you want to visit: ")
 tripdates = int(input("Please state the total amount of days you will stay in this/those country/countries you want to visit: "))
 if  tripdates > 1:
