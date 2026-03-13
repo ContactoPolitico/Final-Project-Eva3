@@ -66,15 +66,15 @@ region = ans.json()[0]["region"]
 countries = [region]
 
 def trip(tripcountries, tripdates):
-	if tripcountries == countries[0]["region"]["Americas"]:
+	if region == "Americas":
 		print(f"That will be {tripdates * priceAM}$")
-	elif tripcountries == countries[0]["region"]["Europe"]:
+	elif region == "Europe":
 		print(f"That will be {tripdates * priceEU}$")
-	elif tripcountries == countries[0]["region"]["Asia"]:
+	elif region == "Asia":
 		print(f"That will be {tripdates * priceAS}$")
-	elif tripcountries == countries[0]["region"]["Africa"]:
+	elif region == "Africa":
 		print(f"That will be {tripdates * priceAF}$")
-	elif tripcountries == countries[0]["region"]["Oceania"]:
+	elif region == "Oceania":
 		print(f"That will be {tripdates * priceOC}$")
 	else:
 			print("That is not a valid country")
@@ -83,4 +83,4 @@ print(f"Client: {tripname}")
 print(f"Countries visiting: {tripcountries}") 
 print(f"Days visiting: {tripdates}")
 print(f"Notes/special requirements: {notes}")
-print(f"Total cost of trip: {trip}")
+trip(tripcountries, tripdates)
